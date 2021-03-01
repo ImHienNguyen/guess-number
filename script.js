@@ -25,9 +25,11 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.message').textContent = '🎉 Correct!';
       document.querySelector('.number').textContent = secretNumber;
       document.querySelector('body').style.backgroundColor = '#34a853';
-      document.querySelector('.highscore').textContent = score;
       document.querySelector('.number').style.width = '30rem';
-      highscore = Number(document.querySelector('.highscore').value);
+      if (highscore < score) {
+        highscore = score;
+        document.querySelector('.highscore').textContent = highscore;
+      }
     } else if (inputNumber > secretNumber) {
       // Input higher than secret number
       document.querySelector('.message').textContent = '📉 Too high';
